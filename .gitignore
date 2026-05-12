@@ -1,4 +1,9 @@
 venv
+.venv
+venv1
+.venv1
 .idea
 .pytest_cache
 __pycache__
+env
+.env

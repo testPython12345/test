@@ -41,5 +41,4 @@ def max_two(a, b):
     elif b>a:
         return b
     return None
-    
 print(max_two(2, 5))
