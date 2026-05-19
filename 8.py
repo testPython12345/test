@@ -1,5 +1,5 @@
-from collections import deque, Counter, defaultdict
 
+'''
 dd = defaultdict(list)
 dd1 = defaultdict(int)
 
@@ -14,17 +14,17 @@ dd['a'].append(1)
 dd['a'].append(2)
 dd['b'].append(4)
 print(dd)
-
-
-
-
 '''
+
+from collections import deque, Counter, defaultdict
 a = [1, 2, 3]
 print(a.pop())
 print(a)
 d = deque(maxlen=3)
 d.append(2)
+print(d)
 d.append(3)
+print(d)
 d.appendleft(1)
 print(d)
 d.append(4)
@@ -37,4 +37,3 @@ d.rotate(-2)
 print(d)
 print(Counter([1,2,3,3,2,1,3]))
 print(Counter('as fFf rew qvs wwd'))
-'''

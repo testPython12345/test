@@ -24,6 +24,9 @@ silver - 10% скидка
 gold - 15% скидка
 """
 
+
+
+
 def calc_discont(price, level):
     if level == 'basic':
         return price * 0.95
