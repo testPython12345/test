@@ -138,7 +138,77 @@ SELECT FULL_NAME AS 'ФИО' FROM employees;
 SELECT FULL_NAME FROM employees
 EXCEPT
 SELECT DEPARTMENT_NAME FROM departments;
-*/
+
 SELECT DEPARTMENT_ID FROM employees
 EXCEPT
 SELECT DEPARTMENT_ID FROM departments;
+
+SELECT username, age  FROM users_2;
+
+
+
+CREATE TABLE rabotniki(
+    id INTEGER PRIMARY KEY
+    ,full_name TEXT
+    ,department TEXT
+    ,salary INTEGER
+);
+INSERT INTO rabotniki(full_name, department, salary)
+VALUES
+    ('Daniil', 'IT', 1000000),
+    ('PEter', 'Marketing', 25000),
+    ('Olga', 'Manage', 50000),
+    ('Maria', 'IT', 100000),
+    ('Ivan', 'Marketing', 67000),
+    ('Dmitri', 'Manage', 95000);
+
+SELECT * FROM rabotniki;
+
+
+SELECT full_name, salary FROM rabotniki
+WHERE salary > (SELECT AVG(salary) FROM rabotniki);
+
+
+
+SELECT full_name, salary FROM rabotniki
+GROUP BY salary
+HAVING salary > 50000
+ORDER BY salary DESC;
+
+
+SELECT * FROM sales;
+
+
+УРОВЕНЬ 1: 
+    1) Вывести все заказы
+    2) Вывести только продукты и их цену
+    3) Найти все заказы из Asia
+    4) Найти все товары категории Electronics
+УРОВНЬ 2: 
+    1) Вывести все заказы где стоимость заказы выше 300
+    2) Вывести заказ где количество товара больше 2
+    3) Вывести заказы с оплатой PayPal
+    4) Отсортировать товары по их цене
+    5) Вывести 5 самых дорогих товаров
+УРОВЕНЬ 3: 
+    1) Найти среднюю цену заказов
+    2) Посчитать сколько заказов в каждом регионе
+    3) Найти среднюю сумму заказов для каждого региона
+    4) Вывести все уникальные товары (Product_Name = sales.Product_Name)
+SELECT Product_Name, Region FROM sales
+WHERE Region = 'Asia';
+SELECT Product_Name, (Unit_Price*Units_Sold) FROM sales
+WHERE (Unit_Price*Units_Sold) > 300;
+SELECT ROUND(AVG(Unit_Price*Units_Sold),2) AS 'СР' FROM sales;
+
+WITH Product_counts AS (
+    SELECT Product_Name, COUNT(*) AS total 
+    FROM sales
+    GROUP BY Product_Name
+)
+SELECT Product_Name
+FROM Product_counts
+WHERE total >1;
+*/
+
+SELECT * FROM sqlite_master;
